@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Producto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            
+        }
+        .container-full-height {
+            height: 84vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-dark">
+        <h2 class="text-center text-white">Prueba técnica Tech Dev---Jefte Manuel Beltran Pineda</h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Regresar al menún principal</a>
+    </header>
+
+    <div class="container container-full-height">
+        <div class="row h-100">
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+                <h1 class="text-dark">Eliminar Producto</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>¿Estás seguro de que deseas eliminar el producto "{{ producto.nombre }}"?</p>
+                    <input type="hidden" name="producto_id" value="{{ producto.id }}">
+                    <input type="submit" class="btn btn-success" value="Eliminar Producto">
+                </form>
+                <a href="{% url 'lista_productos' %}" class="btn btn-secondary mt-3">Volver a la lista de productos</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 - Derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>Política de privacidad | Términos de uso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

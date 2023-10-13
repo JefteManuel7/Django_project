@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .container-full-height {
+            min-height: 84%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark">
+        <h2 class="text-center text-white">Prueba técnica Tech Dev---Jefte Manuel Beltran Pineda</h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Regresar al menú principal</a>
+    </header>
+
+    <div class="container-fluid container-full-height">
+        <div class="row">
+            <div class="col-12 bg-light d-flex flex-column align-items-center justify-content-center">
+                <h1>Lista de Productos</h1>
+                <ul>
+                    {% for producto in productos %}
+                        <li>
+                            {{ producto.nombre }} - <a href="{% url 'editar_producto' producto.id %}">Editar</a> - <a href="{% url 'eliminar_producto' producto.id %}">Eliminar</a> - <a href="{% url 'detalle_producto' producto.id %}">Detalle</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <a class="btn btn-primary" href="{% url 'agregar_producto' %}">Agregar Producto</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 - Derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>Política de privacidad | Términos de uso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

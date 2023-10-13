@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .container-full-height {
+            min-height: 84%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark">
+        <h2 class="text-center text-white">Prueba técnica Tech Dev---Jefte Manuel Beltran Pineda</h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Regresar al menú principal</a>
+    </header>
+
+    <div class="container-fluid container-full-height">
+        <div class="row">
+            <div class="col-12 bg-light d-flex flex-column align-items-center justify-content-center">
+                <h1>Editar Producto</h1>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-success" type="submit" value="Actualizar Producto">
+                </form>
+
+                <a href="{% url 'lista_productos' %}" class="btn btn-primary mt-3">Volver a la lista de productos</a>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 - Derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>Política de privacidad | Términos de uso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

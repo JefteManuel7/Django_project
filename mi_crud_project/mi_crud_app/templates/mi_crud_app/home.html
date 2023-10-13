@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Título de la Página</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home.css">
+
+
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .container-main {
+            min-height: calc(91vh - 50px); /* 50px es la altura del encabezado y pie de página */
+        }
+       
+        .neon-text {
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.9);
+        }
+    
+    </style>
+</head>
+<body>
+    <header class="bg-dark">
+        <h3 class="text-center text-white neon-text">Prueba técnica Tech Dev - Jefte Manuel Beltran Pineda</h3>
+
+        <nav class="tex-center">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'agregar_producto' %}">Agregar Producto</a>
+                </li>
+                {% for producto in productos %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'editar_producto' pk=producto.pk %}">Editar Producto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'eliminar_producto' pk=producto.pk %}">Eliminar Producto</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'detalle_producto' pk=producto.pk %}">Detalle del producto</a>
+                </li>
+                {% endfor %}
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_productos' %}">Listar Productos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-fluid container-main">
+        <div class="row">
+            <main class="col-lg-9">
+                <h2 class="text-center">Proyecto basado en prueba técnica</h2>
+                <p class="text-center">Proyecto desarrollado con Django, con el lenguaje de programación de python</p>
+                <pre>
+                    <strong>Objetivo de la prueba técnica:</strong>
+                    Evaluar la capacidad del candidato para crear un CRUD sencillo utilizando Django.
+                    Instrucciones:
+                    1. Crea un nuevo proyecto Django llamado "mi_crud_project".
+                    2. Crea una base de datos MySQL llamada miCrudProject.
+                    3. Crea una aplicación llamada "mi_crud_app" en el proyecto.
+                    4. Define un modelo llamado "Producto" en la aplicación "mi_crud_app". El modelo debe tener
+                    los siguientes campos:
+                    a. Nombre (CharField)
+                    b. Descripción (TextField)
+                    c. Precio (DecimalField)
+                    d. Fecha de creación (DateField)
+                    5. Crea una vista basada en clases que permita mostrar una lista de todos los productos en
+                    una página llamada "lista_productos".
+                    6. Crea una vista basada en clases que permita agregar un nuevo producto en una página
+                    llamada "agregar_producto". Debe incluir un formulario para ingresar la información del
+                    producto.
+                    7. Crea una vista basada en clases que permita ver los detalles de un producto en una página
+                    llamada "detalle_producto". Debe mostrar todos los campos del producto.
+                    8. Crea una vista basada en clases que permita editar la información de un producto en una
+                    página llamada "editar_producto". Debe incluir un formulario prellenado con la información
+                    actual del producto.
+                    9. Crea una vista basada en clases que permita eliminar un producto en una página llamada
+                    "eliminar_producto". Debe mostrar una confirmación antes de eliminar el producto.
+                    10. Configura las URL para las vistas mencionadas anteriormente.
+                    11. Crea un archivo README que explique cómo ejecutar el proyecto y las pruebas.
+                    12. Todas las transacciones se deberán realizar con la base de datos creada en el paso 2.
+                    Esta prueba evaluará la capacidad del candidato para crear un CRUD básico utilizando Django,
+                    incluyendo la definición de modelos, vistas basadas en clases y URLs. También se espera que el
+                    candidato siga las mejores prácticas de desarrollo de Django.
+                    Entrega:
+                    El candidato tendrá hasta las 02:00pm del día vienres 13 de octubre para enviar el enlace del
+                    repositorio al correo donde se envíen las indicaciones de la prueba.
+                </pre>
+            </main>
+
+            <aside class="col-lg-3 bg-light">
+                <h5>Por: Jefte Manuel Beltran Pineda</h5>
+                <p></p>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 - Derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>Política de privacidad | Términos de uso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

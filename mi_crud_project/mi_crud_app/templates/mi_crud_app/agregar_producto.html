@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+         body, html {
+            height: 100%;
+        }
+        .container-main {
+            min-height: calc(91vh - 50px); /* 50px es la altura del encabezado y pie de página */
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <header class="bg-dark">
+        <h2 class="text-center text-white">Prueba técnica Tech Dev---Jefte Manuel Beltran Pineda</h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Volver al menú principal</a>
+    </header>
+    
+    <div class="container-fluid container-main  bg-secondary">
+        <h2 class="text-center text-white">Agregar Producto</h2>
+        <div class="row h-100">
+            <div class="col-12 bg-secondary text-white d-flex flex-column align-items-center justify-content-center">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-success" type="submit" value="Guardar Producto">
+                </form>
+                <a class="btn btn-secondary mt-3" href="{% url 'lista_productos' %}">Volver a la lista de productos</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 - Derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>Política de privacidad | Términos de uso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
